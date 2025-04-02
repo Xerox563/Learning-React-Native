@@ -10,7 +10,7 @@ const Lecture13 = () => {
       <TextInput
         placeholder="Enter Your Name"
         style={styles.txtinput}
-        onChangeText={(text) => setName(text)}
+        onChangeText={(name) => setName(name)}
       ></TextInput>
       <Button title="Clear Input Value" onPress={() => setName("")}></Button>
     </View>
