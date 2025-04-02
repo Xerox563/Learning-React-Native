@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import UserData from "../../components/main/ButtonMain";
 import Lecture12 from "../../components/main/Lecture12";
+import Lecture13 from "../../components/main/Lecture13";
 const HomeScreen = () => {
   const fruit = () => {
     console.log("Function Called !!");
@@ -18,7 +19,8 @@ const HomeScreen = () => {
       <Button title="Click Me" color={"black"} onPress={fruit}></Button>
       <UserData />
       <CollegeData /> */}
-      <Lecture12 />
+      {/* <Lecture12 /> */}
+      <Lecture13 />
     </View>
   );
 };
@@ -26,7 +28,7 @@ const HomeScreen = () => {
 const CollegeData = () => {
   return (
     <View>
-      <Text>Me from IIT Kanpur .. ...</Text>
+      <Text>Me from Biet Jhansi .. ...</Text>
     </View>
   );
 };
