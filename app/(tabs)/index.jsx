@@ -1,7 +1,6 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 const HomeScreen = () => {
-  const arr = ["Apple", "Mango", "Banana", "Orange", "PineApple", "Grapes"];
   const users = [
     {
       id: 1,
@@ -21,44 +20,139 @@ const HomeScreen = () => {
     },
     {
       id: 5,
-      name: "Keshav",
+      name: "Rohan",
     },
     {
-      id: 6,
-      name: "Raghav",
+      id: 13,
+      name: "Abhay",
     },
     {
-      id: 7,
-      name: "Dileep",
+      id: 14,
+      name: "Amit",
+    },
+    {
+      id: 15,
+      name: "Rachit",
+    },
+    {
+      id: 1,
+      name: "Peter",
+    },
+    {
+      id: 2,
+      name: "Alex",
+    },
+    {
+      id: 3,
+      name: "Raju",
+    },
+    {
+      id: 4,
+      name: "aman",
+    },
+    {
+      id: 5,
+      name: "Rohan",
+    },
+    {
+      id: 13,
+      name: "Abhay",
+    },
+    {
+      id: 14,
+      name: "Amit",
+    },
+    {
+      id: 15,
+      name: "Rachit",
+    },
+    {
+      id: 1,
+      name: "Peter",
+    },
+    {
+      id: 2,
+      name: "Alex",
+    },
+    {
+      id: 3,
+      name: "Raju",
+    },
+    {
+      id: 4,
+      name: "aman",
+    },
+    {
+      id: 5,
+      name: "Rohan",
+    },
+    {
+      id: 13,
+      name: "Abhay",
+    },
+    {
+      id: 14,
+      name: "Amit",
+    },
+    {
+      id: 15,
+      name: "Rachit",
+    },
+    {
+      id: 1,
+      name: "Peter",
+    },
+    {
+      id: 2,
+      name: "Alex",
+    },
+    {
+      id: 3,
+      name: "Raju",
+    },
+    {
+      id: 4,
+      name: "aman",
+    },
+    {
+      id: 5,
+      name: "Rohan",
+    },
+    {
+      id: 13,
+      name: "Abhay",
+    },
+    {
+      id: 14,
+      name: "Amit",
+    },
+    {
+      id: 15,
+      name: "Rachit",
     },
   ];
   return (
     <View>
-      <Text style={{ marginTop: 19 }}>
-        Below is the List of Most talented users ..
-      </Text>
-      <FlatList
-        style={styles.heading}
-        data={users}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Text style={styles.smallheading}>{item.name}</Text>
-        )}
-      />
+      <Text>Below is the List of Most talented users ..</Text>
+      <ScrollView>
+        {users.map((item) => (
+          <Text style={styles.head}>{item.name}</Text>
+        ))}
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  heading: {
+  head: {
+    backgroundColor: "blue",
     borderWidth: 2,
     borderColor: "yellow",
-    backgroundColor: "grey",
-  },
-  smallheading: {
-    borderWidth: 2,
-    borderColor: "purple",
-    backgroundColor: "green",
+    padding: 14,
+    color: "white",
+    textAlignVertical: "center",
+    textAlign: "center",
+    marginTop: 10,
   },
 });
 
