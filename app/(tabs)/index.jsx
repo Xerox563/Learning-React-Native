@@ -1,27 +1,49 @@
+import { useState } from "react";
 import {
   View,
   Text,
   TouchableHighlight,
   StyleSheet,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
+
 const HomeScreen = () => {
+  const [show, setShow] = useState(false);
+
   return (
-    <View style={{ marginTop: 50 }}>
+    <View style={{ marginTop: 50, padding: 20 }}>
+      {/* TouchableHighlight with style and underlayColor */}
       <TouchableHighlight
         onPress={() => alert("Button1 Pressed")}
-        activeOpacity={0.4}
+        underlayColor="purple"
+        style={styles.btn1}
       >
-        {/* Reduces the opacity of the child component when pressed. */}
-        <Text style={styles.btn1}> Click Button1</Text>
+        <Text style={styles.btnText}>Click Button1</Text>
       </TouchableHighlight>
+
+      {/* TouchableOpacity for loader */}
       <TouchableOpacity
         activeOpacity={0.6}
         style={[styles.btn1, styles.btn2]}
-        onPress={() => alert("Button2 Pressed ")}
+        onPress={() => {
+          setShow(true);
+          setTimeout(() => {
+            setShow(false);
+          }, 3000);
+        }}
       >
-        <Text style={[styles.btn1, styles.btn2]}> Click Button2</Text>
+        <Text style={styles.btnText}>Show Loader</Text>
       </TouchableOpacity>
+
+      {/* Loader appears only when show === true */}
+      {show && (
+        <ActivityIndicator
+          style={{ marginTop: 20 }}
+          size="large"
+          color="blue"
+        />
+      )}
     </View>
   );
 };
@@ -29,50 +51,21 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   btn1: {
     backgroundColor: "blue",
-    color: "black",
     borderWidth: 3,
     borderColor: "pink",
-    padding: 8,
+    padding: 12,
+    borderRadius: 8,
+    marginVertical: 10,
+    alignItems: "center",
   },
   btn2: {
     backgroundColor: "green",
-    border: "yellow",
-    underlayColor: "purple",
+    borderColor: "yellow",
+  },
+  btnText: {
+    color: "white",
+    fontWeight: "bold",
   },
 });
 
 export default HomeScreen;
-
-/*
-
-activeOpacity : How transparen button becomes when pressed (0-1)
-
-🟢 Use TouchableOpacity When:
-
-Scenario	Explanation
-✅ You want a modern UI look	Opacity fade feels clean and minimal.
-✅ You're building custom buttons	Especially for cards, icons, images, etc.
-✅ You want fast interactions	It renders slightly faster, lightweight.
-✅ Subtle feedback is enough	Great when you don’t want bold feedback.
-✅ You're using FlatList items	Lightweight tap handling on rows/items.
-
-🔥 Ideal For:
-    Navigation buttons
-    Icons, images, cards
-    Floating Action Buttons (FABs)
-    Any component needing light feedback
-* ------------------------------------------------------------------------
-
-🔵 Use TouchableHighlight When:
-
-Scenario	Explanation
-✅ You want clear and strong feedback	Shows underlay color when pressed.
-✅ You need a "pressed" background effect	Use underlayColor to customize it.
-✅ You're targeting older UI styles	Useful in older apps, or dark UIs.
-✅ You want to clearly show taps	For example: settings menus, list items.
-
-🔥 Ideal For:
-    Menu items with full-width background on press
-    Richly styled buttons with contrast feedback
-    Dark-themed UIs needing visible press action
-*/
