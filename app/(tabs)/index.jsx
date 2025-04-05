@@ -9,12 +9,17 @@ const HomeScreen = () => {
   return (
     <View style={{ marginTop: 50 }}>
       <TouchableHighlight
-        onPress={() => alert("Pressed")}
-        underlayColor="#DDDDDD"
+        onPress={() => alert("Button1 Pressed")}
+        activeOpacity={0.4}
       >
+        {/* Reduces the opacity of the child component when pressed. */}
         <Text style={styles.btn1}> Click Button1</Text>
       </TouchableHighlight>
-      <TouchableOpacity activeOpacity={0.6} style={[styles.btn1, styles.btn2]}>
+      <TouchableOpacity
+        activeOpacity={0.6}
+        style={[styles.btn1, styles.btn2]}
+        onPress={() => alert("Button2 Pressed ")}
+      >
         <Text style={[styles.btn1, styles.btn2]}> Click Button2</Text>
       </TouchableOpacity>
     </View>
@@ -39,6 +44,8 @@ const styles = StyleSheet.create({
 export default HomeScreen;
 
 /*
+
+activeOpacity : How transparen button becomes when pressed (0-1)
 
 🟢 Use TouchableOpacity When:
 
